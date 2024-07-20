@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <title>Dynamic Date Widget</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: #eef4ed;
+            }
+            .date {
+                font-size: 24px;
+                color: black;
+            }
+
+            </style>
+    </head>
+    <body>
+        <div class="date" id="date"></div>
+        <script>
+            function updateDate() {
+                const options = {weekday: 'long', year: 'numeric', month: 'long', day:'numeric'};
+                const today = new Date();
+                document.getElementById('date').innerText = today.toLocaleDateString("en-UK", options)
+            }
+            updateDate();
+            </script>
+    </body>
+    </html>
