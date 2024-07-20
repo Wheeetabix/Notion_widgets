@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <title>Dynamic Date Widget</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: #eef4ed;
+            }
+            .date-container {
+
+                text-align: center;
+                display: grid;
+                grid-template-rows: auto auto auto;
+                gap: 5px;
+                padding: 20px;
+                border: 1px solid eef4ed;
+                background-color: white;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+            }
+            .day {
+                font-size: 18px;
+                font-family: 'Anton', sans-serif;
+                margin-bottom: 5px;
+            }
+            .date {
+                display: flex;
+                justify-content: center;
+                gap: 3px;
+            }
+            .date-box {
+                padding:30px 20px;
+                border: 1px sold white;
+                background-color: #eef4ed;
+                border-radius: 4px;
+                font-size: 52px;
+                font-family: 'Anton', sans-serif;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 80px;
+                height: 120px;
+            }
+            .year {
+                font-size: 18px;
+                font-family: 'Anton', sans-serif;
+                margin-top: 5px;
+            }
+
+            </style>
+    </head>
+    <body>
+        <div class="date-container">
+            <div class="day" id="day"></div>
+            <div class="date">
+                <div class="date-box" id="date"></div>
+                <div class="date-box" id="month"></div>
+            </div>
+            <div class="year" id="year"></div>
+
+        <script>
+            function updateDate() {
+                const today = new Date();
+                const optionsDay = {weekday: 'long'};
+                const optionsDate = {day: 'numeric'};
+                const optionsMonth = {month: 'short'};
+                const optionsYear = {year: 'numeric'};
+
+                document.getElementById('day').innerText = today.toLocaleDateString("en-UK", optionsDay);
+                document.getElementById('date').innerText = today.toLocaleDateString("en-UK", optionsDate);
+                document.getElementById('month').innerText = today.toLocaleDateString("en-UK", optionsMonth);
+                document.getElementById('year').innerText = today.toLocaleDateString("en-UK", optionsYear);
+            }
+
+            updateDate();
+            </script>
+    </body>
+    </html>
